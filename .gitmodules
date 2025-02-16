@@ -1,0 +1,3 @@
+[submodule "extern/qlexNet"]
+	path = extern/qlexNet
+	url = git@github.com:alchekroun/qlexNet.git
