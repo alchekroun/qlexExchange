@@ -1,7 +1,6 @@
 #pragma once
 
-#include <sstream>
-#include <iostream>
+#include "Common.h"
 
 namespace qlexexchange
 {
@@ -34,4 +33,4 @@ namespace qlexexchange
         std::string _className;
     };
 
-} // qlexexchange
+} // qlexExchange
