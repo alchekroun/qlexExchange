@@ -6,5 +6,8 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include <numeric>
+#include <queue>
+#include <chrono>
 
 #endif

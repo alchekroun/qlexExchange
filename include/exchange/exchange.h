@@ -54,8 +54,6 @@ namespace qlexexchange
                 client->send(msg1);
                 break;
             }
-            case MessageTypes::server_accept:
-                break;
             default:
                 break;
             }
@@ -83,5 +81,8 @@ namespace qlexexchange
             if (invalidClientExist)
                 _connections.erase(std::remove(_connections.begin(), _connections.end(), nullptr), _connections.end());
         }
+
+    private:
+        std::unique_ptr<Logger> _log = std::make_unique<Logger>("Exchange");
     };
 } // qlexExchange

@@ -4,7 +4,6 @@
 
 int main()
 {
-    std::cout << "Hello, World!" << std::endl;
 	qlexexchange::Exchange exchange(60000);
 	exchange.start();
 

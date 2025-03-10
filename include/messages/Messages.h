@@ -5,7 +5,7 @@
 namespace qlexexchange
 {
 
-    enum class MessageTypes : uint32_t
+    enum class MessageTypes : uint8_t
     {
         ask_info,
         server_accept

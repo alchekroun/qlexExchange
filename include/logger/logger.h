@@ -5,10 +5,10 @@
 namespace qlexexchange
 {
 
-    class logger
+    class Logger
     {
     public:
-        logger(const std::string &className_) : _className(className_) {}
+        Logger(const std::string &className_) : _className(className_) {}
 
         template <typename First, typename... Args>
         inline void msg(const First &v1, const Args &...v)
