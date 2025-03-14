@@ -5,16 +5,16 @@
 namespace qlexexchange
 {
 
-    enum orderType
+    enum OrderType
     {
         ASK,
         BID
     };
 
-    template <typename T>
+    template <OrderType T>
     class Order
     {
-        std::chrono::system_clock::time_point _timestamp = std::chrono::steady_clock::now();
+        std::chrono::system_clock::time_point _timestamp = std::chrono::system_clock::now();
         uint32_t _idClient;
         float _price;
         int _quantity;
@@ -38,6 +38,15 @@ namespace qlexexchange
         uint32_t getIdClient() const { return _idClient; }
         float getPrice() const { return _price; }
         std::chrono::system_clock::time_point getTime() const { return _timestamp; }
-        T getType() const { return T; }
+
+        friend bool operator<(const Order<ASK> &lhs, const Order<ASK> &rhs);
+        friend bool operator>(const Order<ASK> &lhs, const Order<ASK> &rhs);
+        friend bool operator<(const Order<BID> &lhs, const Order<BID> &rhs);
+        friend bool operator>(const Order<BID> &lhs, const Order<BID> &rhs);
     };
+
+    inline bool operator<(const Order<ASK> &lhs, const Order<ASK> &rhs) { return lhs._price < rhs._price; }
+    inline bool operator>(const Order<ASK> &lhs, const Order<ASK> &rhs) { return lhs._price > rhs._price; }
+    inline bool operator<(const Order<BID> &lhs, const Order<BID> &rhs) { return lhs._price > rhs._price; }
+    inline bool operator>(const Order<BID> &lhs, const Order<BID> &rhs) { return lhs._price < rhs._price; }
 } // qlexExchange
